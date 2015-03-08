@@ -11,6 +11,10 @@ gcloud auth login
 ```
 gcloud compute instances list |grep cache- |awk '{print $1, $5}' > cache_ips
 ```
+* Get the list zones for all cache agents in AGENS system
+```
+gcloud compute instances list |grep cache- |awk '{print $1, $2}' > cache_zones
+```
 * Run bash script "upgrade_agens.sh" to upgrade all nodes listed in cache_ips
 ```
 ./upgrade_agens.sh cache_ips
