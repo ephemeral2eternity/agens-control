@@ -8,6 +8,7 @@ cat $f | while read LINE; do
 	gcloud compute instances create $agent_name --image django-cache-agent --machine-type f1-micro --zone $agent_zone \
 		--scope compute-rw storage-full userinfo-email
 	agent_ip=$(gcloud compute instances list |grep $agent_name |awk '{print $5}')
-	wget "http://$agent_ip:8615/overlay/init/"
-	cat ./index.html
+	RESPONSE=$(wget -qO http://$agent_ip:8615/overlay/init/)
+	echo "$RESPONSE"
+	echo "Provision and initialize $agent_name successfully in $agent_zone!!"
 done

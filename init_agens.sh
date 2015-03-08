@@ -5,6 +5,7 @@ cat $f | while read LINE; do
 	srvName=${srv[0]}
 	srvIP=${srv[1]}
         echo "Initialize $srvName with ip $srvIP."
-	wget "http://$srvIP:8615/overlay/init/"
-	echo ./index.html
+	RESPONSE=$(wget -qO http://$srvIP:8615/overlay/init/)
+	echo $RESPONSE
+	echo "Initialize cache agent $srvName successfully!"
 done

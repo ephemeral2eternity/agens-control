@@ -6,5 +6,6 @@ gcloud compute instances create $srvName --image django-cache-agent --machine-ty
 srvIP=$(gcloud compute instances list |grep $srvName |awk '{print $5}')
 echo "ssh into cache agent $srvName with ip $srvIP and do git pull in agens folder"
 ssh -i ~/.ssh/google_compute_engine -n Chen@$srvIP "cd agens; git pull; python3 manage.py migrate; python3 manage.py runserver 0.0.0.0:8615"
-wget "http://$srvIP:8615/overlay/init/"
-cat ./index.html
+RESPONSE=$(wget -qO http://$srvIP:8615/overlay/init/)
+echo $RESPONSE
+echo "Provision and initialize $srvName in zone $srvZone successfully!"
