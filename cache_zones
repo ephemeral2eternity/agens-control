@@ -1,12 +1,12 @@
 cache-01 asia-east1-a
-cache-02 europe-west1-b
+cache-02 asia-east1-c
 cache-03 europe-west1-b
-cache-04 europe-west1-c
+cache-04 europe-west1-b
 cache-05 europe-west1-c
-cache-06 europe-west1-d
-cache-07 us-central1-a
+cache-06 europe-west1-c
+cache-07 europe-west1-d
 cache-08 us-central1-a
 cache-09 us-central1-b
 cache-10 us-central1-b
-cache-11 us-central1-f
+cache-11 us-central1-c
 cache-12 us-central1-f
